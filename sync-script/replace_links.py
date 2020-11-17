@@ -15,11 +15,11 @@ the files to be used in the documentation repository.
 
 import csv
 def main():
-    with open('map.csv') as f:
+    with open('./sync-script/map.csv') as f:
         reader = csv.reader(f, skipinitialspace=True)
         map_urls = dict(reader)
     for path in map_urls:
-        with open("../Language/"+path, "rt", encoding='utf-8') as f:
+        with open("./Language/"+path, "rt", encoding='utf-8') as f:
             text = f.readlines()
             new_text = []
             for line in text:
@@ -30,7 +30,7 @@ def main():
                     line = line.replace(full_url, full_uid)
                     line = line.replace('← [Back to Index](https://github.com/microsoft/qsharp-language/tree/main/Specifications/Language#index)','')
                 new_text.append(line)
-        with open("../Language/"+path, "wt", encoding='utf-8') as f:
+        with open("./Language/"+path, "wt", encoding='utf-8') as f:
             for line in new_text:
                 f.write(line)
                 
