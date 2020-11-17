@@ -15,17 +15,12 @@ jobs:
       with:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-    - name: Sync copy branch
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git checkout target-copy
-        git merge main
-        git push
     - name: Create local changes     
       run: python3 ./sync-script/replace_links.py
     - name: Commit files
       run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
         git add .
         git commit -m "Add changes" -a
     - name: Push changes
