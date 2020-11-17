@@ -19,6 +19,7 @@ jobs:
       run: |
         git checkout target-copy
         git merge main
+        git push
     - name: Create local changes     
       run: python3 ./sync-script/replace_links.py
     - name: Commit files
