@@ -21,7 +21,7 @@ jobs:
         git merge main
 
     - name: Create local changes     
-      run: python ./sync-script/replace_links.py
+      run: python3 ./sync-script/replace_links.py
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
