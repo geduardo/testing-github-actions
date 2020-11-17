@@ -25,7 +25,6 @@ jobs:
         git commit -m "Automatic switch of links to xrefs" -a
         git checkout copy-target
         git reset --hard master
-        git push --force origin copy-target
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
