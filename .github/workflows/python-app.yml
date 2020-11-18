@@ -19,8 +19,8 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git branch -D copy-target
-        git checkout -b copy-target
+        git branch --local -D copy-target
+        git checkout --local -b copy-target
     - name: Create local changes     
       run: python3 ./sync-script/replace_links.py
     - name: Commit files
