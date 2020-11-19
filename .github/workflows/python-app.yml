@@ -22,8 +22,9 @@ jobs:
         branches: copy-target
     - name: Create target branch
       uses: peterjgrainger/action-create-branch@v2.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        github_token: ${{github.token}}
         branch: 'copy-target'
     - name: Create local changes     
       run: python3 ./sync-script/replace_links.py
