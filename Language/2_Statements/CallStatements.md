@@ -25,4 +25,4 @@ For the compiler to be able to auto-generate the specializations to support part
 >More sophisticated [generation directives](https://github.com/microsoft/qsharp-language/blob/main/Specifications/Language/1_ProgramStructure/4_SpecializationDeclarations.md#auto-generation-directives) may allow to further relax that requirement in the future. 
 
 
-← [Back to Index](https://github.com/microsoft/qsharp-language/tree/main/Specifications/Language#index)  odi
+← [Back to Index](https://github.com/microsoft/qsharp-language/tree/main/Specifications/Language#index)  odier
