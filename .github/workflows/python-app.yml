@@ -15,16 +15,16 @@ jobs:
       with:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-    - name: Delete branch
+    - name: Delete target branch
       uses: dawidd6/action-delete-branch@v3
       with:
         github_token: ${{github.token}}
-        branches: copy-target 
-    - name: Register into GitHub and clones master into copy-target
-      run: |
-        git config user.email "action@github.com"
-        git config user.name "GitHub Action"
-        git branch -D copy-target
+        branches: copy-target
+    - name: Create target branch
+      uses: peterjgrainger/action-create-branch@v2.0.1
+      with:
+        github_token: ${{github.token}}
+        branch: 'copy-target'
     - name: Create local changes     
       run: python3 ./sync-script/replace_links.py
     - name: Commit files
