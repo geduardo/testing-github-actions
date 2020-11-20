@@ -1,5 +1,7 @@
 # Specialization Declarations
 
+Test to trigger changes
+
 ### *Discussion*
 >As explained in the section about [callable declarations](https://github.com/microsoft/qsharp-language/blob/main/Specifications/Language/1_ProgramStructure/3_CallableDeclarations.md#callable-declarations), there is currently no reason to explicitly declare specializations for functions. This may change in the future if we decide to introduce type classes and/or type-related specializations. For now, this section applies to operations and elaborates on how to declare the necessary specializations to support certain functors. 
 
