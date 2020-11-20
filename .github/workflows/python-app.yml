@@ -12,27 +12,23 @@ jobs:
       with:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-    - name: Delete target branch
-      uses: dawidd6/action-delete-branch@v3
-      with:
-        github_token: ${{github.token}}
-        branches: copy-target
-    - name: Create target branch
-      uses: peterjgrainger/action-create-branch@v2.0.1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        branch: 'copy-target'
     - name: Run python script to replace the links     
       run: python3 ./sync-script/replace_links.py
     - name: Commit changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        $ThisCommit = "${{ github.sha }}"
+        git checkout copy-target
+        git reset --hard $ThisCommit
+        python3 ./sync-script/replace_links.py
         git add .
         git commit -m "Automatic switch of links to xrefs" -a
+      shell: pwsh
+      
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ 'copy-target' }}
+        force: true
+        branch: copy-target
