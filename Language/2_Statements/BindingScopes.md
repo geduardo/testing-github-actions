@@ -1,5 +1,7 @@
 # Visibility of Local Variables
 
+New test!
+
 In general, symbol bindings become inoperative at the end of the statement block they occur in. The exceptions to this rule are:
 
 - Bindings of the loop variables in a [`for` loop](https://github.com/microsoft/qsharp-language/blob/main/Specifications/Language/2_Statements/Iterations.md#iterations) are defined for the body of the loop, but not after the end of the loop.
