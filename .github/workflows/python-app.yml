@@ -19,8 +19,7 @@ jobs:
         $ThisCommit = "${{ github.sha }}"
         git checkout copy-target
         git reset --hard $ThisCommit
-        cd sync-script
-        pip install .
+        pip install ./sync-script
         replace_links https://raw.githubusercontent.com/geduardo/testing-github-actions/copy-target/sync-script/map.csv ./Language
         git add .
         git commit -m "Automatic switch of links to xrefs" -a
